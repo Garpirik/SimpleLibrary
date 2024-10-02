@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+padding: 0;
+}
+body{
+
+background-color:  #964b00 ;
+}
+
+.header{
+    text-align: center;
+}
+.main{
+    text-align: center;
+    height: 1080px;
+}
+
+button{
+    background-color: rgb(255, 174, 0);
+    height: 25px;
+    cursor: pointer;
+
+}
+
+input{
+    height: 19px;
+}
+
+
+#AllBooks{
+color: orange;
+margin-top: 16px;
+}
+#view{
+    margin-top: 16px;
+        width: 100px;
+}
+
+.main, .footer, .header{
+    margin-right: 20%;
+    margin-left: 20%;
+    background-color: white;
+
+
+
+
+}
+
+.authorFind_wrapper{
+    margin-top: 32px;
+}
+
+.main{
+    
+}

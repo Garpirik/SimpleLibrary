@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Керування бібліотекою</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body >
+ <header class="header">
+    <h1 style="color: orange;">Керування бібліотекою "LibraryControl" </h1>
+ </header>
+
+ <main class="main"> 
+    <div class="formBooksProperties">
+    <p >
+        <input id="title" placeholder="Title" type="text">
+    <input id="author" placeholder="author" type="text">
+    <input id="year" placeholder="year" type="number">
+
+    <button  onclick="AddBook()" id="addBook"  >Додати книгу    </button>
+</p>
+</div>
+
+        <div  >
+            
+            <h2 id="AllBooks">Всі книги:</h2>
+         
+            <div id="list">
+
+            </div>
+   
+        </div>
+        <p ><button id="view" onclick="viewBook()">Показати</button></p>
+        <div class="authorFind_wrapper">
+            <input type="text" id="authorFind" />
+            <button onclick="afterFound()">Пошук за автором</button>
+            <div id="listbooks">
+
+            </div>
+        </div>
+
+</main>
+
+ <footer class="footer">
+
+ </footer>   
+
+ <script>
+    let arrayBooks = []
+    
+    const AddBook = () =>{
+        let title = document.getElementById("title").value
+        let author = document.getElementById("author").value
+        let year = document.getElementById("year").value
+    
+    
+        arrayBooks.push({titleBook : title, authorBook : author , yearBook : year})
+    }
+    
+    
+    const viewBook = () =>{
+        let afterpreppend = document.getElementById("list")
+        afterpreppend.innerHTML = ''
+        for(let i = 0; i  < arrayBooks.length; i ++){
+                let newBook = document.createElement('div')
+                newBook.innerText = ` Title:  ${arrayBooks[i].titleBook} Author: ${arrayBooks[i].authorBook}  Year ${arrayBooks[i].yearBook}   `
+                afterpreppend.append(newBook)
+        }
+        
+    }
+    
+    const afterFound = () =>{
+        let getvalueAuthor = document.getElementById("authorFind").value
+        let listbooksprepend = document.getElementById("listbooks")
+        listbooksprepend.innerHTML = ''
+        for(let i = 0 ; i < arrayBooks.length; i++){
+            if(getvalueAuthor === arrayBooks[i].authorBook){
+                let findBook = document.createElement('div')
+                findBook.innerText = `Title: ${arrayBooks[i].titleBook} Author: ${arrayBooks[i].authorBook} Year: ${arrayBooks[i].yearBook}   `
+                listbooksprepend.append(findBook);
+            }
+        }
+    }
+
+
+    </script>
+
+</body>
+
+</html>
