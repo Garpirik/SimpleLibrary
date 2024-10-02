@@ -62,12 +62,21 @@
         let title = document.getElementById("title").value
         let author = document.getElementById("author").value
         let year = document.getElementById("year").value
-        if(title === '' || author == '' || year <= 0){
+        let f = true;
+        if(title === '' || author == '' || year <= 0 ){
             alert("Неправильний ввод даних")
             return; 
         }
-    
+        arrayBooks.forEach(el =>{
+            if(el.titleBook === title ){
+                alert("Вже є така книга.")
+                f = false;
+                return;
+            }
+        })
+        if(f){
         arrayBooks.push({titleBook : title, authorBook : author , yearBook : year})
+        }
         viewBook()
     }
     
