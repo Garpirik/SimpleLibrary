@@ -19,20 +19,21 @@ button{
     background-color: rgb(255, 174, 0);
     height: 25px;
     cursor: pointer;
-
+    width: 150px;
 }
 
 input{
-    height: 19px;
+    height: 21px;
+    width: 150px;
 }
 
 
 #AllBooks{
 color: orange;
-margin-top: 16px;
+padding-top: 16px;
 }
 #view{
-    margin-top: 16px;
+    padding-top: 16px;
         width: 100px;
 }
 
@@ -47,9 +48,24 @@ margin-top: 16px;
 }
 
 .authorFind_wrapper{
-    margin-top: 32px;
+    padding-top: 32px;
 }
 
-.main{
+
+
+.formBooksProperties{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
+    padding-top: 16px;
+}
+
+.formBooksProperties input{
+    margin-right: 4px;
+}
+
+
+.authorDelete_wrapper{
+    padding-top: 64px;
 }

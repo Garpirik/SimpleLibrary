@@ -14,16 +14,16 @@
 
  <main class="main"> 
     <div class="formBooksProperties">
-    <p >
-        <input id="title" placeholder="Title" type="text">
-    <input id="author" placeholder="author" type="text">
-    <input id="year" placeholder="year" type="number">
+
+        <input id="title" placeholder="Назва Книги" type="text">
+    <input id="author" placeholder="Автор" type="text">
+    <input id="year" placeholder="Рік" type="number">
 
     <button  onclick="AddBook()" id="addBook"  >Додати книгу    </button>
-</p>
+
 </div>
 
-        <div  >
+        <div>
             
             <h2 id="AllBooks">Всі книги:</h2>
          
@@ -32,14 +32,22 @@
             </div>
    
         </div>
-        <p ><button id="view" onclick="viewBook()">Показати</button></p>
+            <div class="wrapper_author">
         <div class="authorFind_wrapper">
-            <input type="text" id="authorFind" />
-            <button onclick="afterFound()">Пошук за автором</button>
+            <input type="text" id="authorFind" placeholder="Автор"/>
+            <button onclick="authorFound()">Пошук за автором</button>
             <div id="listbooks">
 
             </div>
+            </div>
+            <div class="authorDelete_wrapper">
+                <input type="text" id="authorDelete" placeholder="Автор"/>
+                <button onclick="authorDelete()">Видалення за автором</button>
+          
+            </div>
         </div>
+
+
 
 </main>
 
@@ -54,9 +62,13 @@
         let title = document.getElementById("title").value
         let author = document.getElementById("author").value
         let year = document.getElementById("year").value
-    
+        if(title === '' || author == '' || year <= 0){
+            alert("Неправильний ввод даних")
+            return; 
+        }
     
         arrayBooks.push({titleBook : title, authorBook : author , yearBook : year})
+        viewBook()
     }
     
     
@@ -71,7 +83,7 @@
         
     }
     
-    const afterFound = () =>{
+    const authorFound = () =>{
         let getvalueAuthor = document.getElementById("authorFind").value
         let listbooksprepend = document.getElementById("listbooks")
         listbooksprepend.innerHTML = ''
@@ -83,6 +95,23 @@
             }
         }
     }
+
+    const authorDelete = () =>{
+        let getvalueAuthor = document.getElementById("authorDelete").value
+        for(let i = 0 ; i < arrayBooks.length; i++){
+            if(getvalueAuthor === arrayBooks[i].authorBook && arrayBooks.length === 1){
+                 arrayBooks.pop();       
+                    }
+                    else{
+                        arrayBooks.splice(i,i)
+                    }
+
+        }
+        
+        viewBook()
+    }
+
+
 
 
     </script>
